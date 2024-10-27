@@ -2,7 +2,7 @@
 Ovaj repozitorij sadrži otvorene podatke o garažama u Zagrebu. Podatci su dostupni u .csv i .json formatu te u obliku dumpa PostgreSQL baze podataka.
 
 ## Metapodatci
-- **Licencija**: Creative Commons Zero v1.0
+- **Licencija**: Creative Commons Zero v1.0 Universal
 - **Autor**: Vedran Vrabec
 - **Verzija**: 1.0
 - **Jezik**: hrvatski
@@ -12,7 +12,7 @@ Ovaj repozitorij sadrži otvorene podatke o garažama u Zagrebu. Podatci su dost
 -  
 
 ## Primjer podataka
-json:
+```json:
 [
     {
         "idgaraza" : 1, 
@@ -27,7 +27,8 @@ json:
         "tarife" : [{"pocetak" : "00:00:00", "kraj" : "24:00:00", "cijena" : 2.00}], 
         "lokacija" : {"idlokacije" : 1, "opislokacije" : "tržni/poslovni centar"}
     }, ... 
-]
+]```
+
 
 csv:
 idgaraza,imegaraza,ulica,broj,kvart,brojmjesta,brojrazina,maksimalnavisina,dostupnostpovlastenekarte,idtarifegaraze,cijena,pocetak,kraj,idlokacije,opislokacije
