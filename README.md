@@ -11,6 +11,24 @@ Ovaj repozitorij sadrži otvorene podatke o garažama u Zagrebu. Podatci su dost
 - **Kontakt**: vedran.vrabec@fer.unizg.hr
 -  
 
+## Opis atributa
+- **idgaraza**: Jedinstveni identifikator garaže
+- **imegaraza**: Ime garaže
+- **ulica**: Ulica u kojoj se nalazi ulaz garaže
+- **broj**: Kućni broj ulice u kojoj se garaža nalazi
+- **kvart**: Kvart u kojem se garaža nalazi
+- **brojmjesta**: Ukupan broj parkirnih mjesta u garaži
+- **brojrazina**: Broj razina u garaži
+- **maksimalnavisina**: Maksimalna visina vozila koja može ući u garažu (u metrima)
+- **dostupnostpovlastenekarte**: Informacija o dostupnosti povlaštenih karata (true/false)
+- **tarife**: Cijena karte u razdobljima određenim s početak i kraj
+  - **pocetak**: Vrijeme početka određene tarife 
+  - **kraj**: Vrijeme određene završetka tarife
+  - **cijena**: Cijena parkiranja za određeni vremenski period
+- **lokacija**: Informacija o lokaciji garaže, odnosno u sklopu čega se nalazi garaža
+  - **idlokacije**: Jedinstveni identifikator lokacije
+  - **opislokacije**: Opis lokacije (npr. tržni/poslovni centar, javna garaža, bolnička garaža)
+
 ## Primjer podataka
 - json format:
 ```json:
