@@ -6,28 +6,31 @@ Ovaj repozitorij sadrži otvorene podatke o garažama u Zagrebu. Podatci su dost
 - **Autor**: Vedran Vrabec
 - **Verzija**: 1.0
 - **Jezik**: hrvatski
-- **Datum kreiranja**: 27.10.2024.
+- **Datum izrade**: 27.10.2024.
+- **Datum zadnje promjene**: 27.10.2024. 
 - **Formati podataka**: JSON, CSV, dump SQL
 - **Kontakt**: vedran.vrabec@fer.unizg.hr
--  
+- **Ključne riječi**: Zagreb, garaža, parking
+- **Područje**: Zagreb, Hrvatska
 
 ## Opis atributa
-- **idgaraza**: Jedinstveni identifikator garaže
-- **imegaraza**: Ime garaže
-- **ulica**: Ulica u kojoj se nalazi ulaz garaže
-- **broj**: Kućni broj ulice u kojoj se garaža nalazi
-- **kvart**: Kvart u kojem se garaža nalazi
-- **brojmjesta**: Ukupan broj parkirnih mjesta u garaži
-- **brojrazina**: Broj razina u garaži
-- **maksimalnavisina**: Maksimalna visina vozila koja može ući u garažu (u metrima)
-- **dostupnostpovlastenekarte**: Informacija o dostupnosti povlaštenih karata (true/false)
+- **idgaraza** (integer): Jedinstveni identifikator garaže
+- **imegaraza** (string): Ime garaže
+- **ulica** (string): Ulica u kojoj se nalazi ulaz garaže
+- **broj** (integer): Kućni broj ulice u kojoj se garaža nalazi
+- **kvart** (string): Kvart u kojem se garaža nalazi
+- **brojmjesta** (integer): Ukupan broj parkirnih mjesta u garaži
+- **brojrazina** (integer): Broj razina u garaži
+- **maksimalnavisina** (float): Maksimalna visina vozila koja može ući u garažu (u metrima)
+- **dostupnostpovlastenekarte** (boolean): Informacija o dostupnosti povlaštenih karata
 - **tarife**: Cijena karte u razdobljima određenim s početak i kraj
-  - **pocetak**: Vrijeme početka određene tarife 
-  - **kraj**: Vrijeme određene završetka tarife
-  - **cijena**: Cijena parkiranja za određeni vremenski period
+  - **pocetak** (time): Vrijeme početka određene tarife 
+  - **kraj** (time): Vrijeme određene završetka tarife
+  - **cijena** (float): Cijena parkiranja za određeni vremenski period
 - **lokacija**: Informacija o lokaciji garaže, odnosno u sklopu čega se nalazi garaža
-  - **idlokacije**: Jedinstveni identifikator lokacije
-  - **opislokacije**: Opis lokacije (npr. tržni/poslovni centar, javna garaža, bolnička garaža)
+  - **idlokacije** (integer): Jedinstveni identifikator lokacije
+  - **opislokacije** (string): Opis lokacije (npr. tržni/poslovni centar, javna garaža, bolnička garaža)
+> Napomena: tip time je oblika HH:MM:SS (što je posljedica toga da se u PostgreSQL-u koristio tip TIME za definiranje atributa pocetak i kraj 
 
 ## Primjer podataka
 - json format:
