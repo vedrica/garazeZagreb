@@ -6,8 +6,8 @@ Ovaj repozitorij sadrži otvorene podatke o garažama u Zagrebu. Podatci su dost
 - **Autor**: Vedran Vrabec
 - **Verzija**: 1.0
 - **Jezik**: hrvatski
-- **Datum izrade**: 27.10.2024.
-- **Datum zadnje promjene**: 27.10.2024. 
+- **Datum izrade**: 28.10.2024.
+- **Datum zadnje promjene**: 28.10.2024. 
 - **Formati podataka**: JSON, CSV, dump SQL
 - **Kontakt**: vedran.vrabec@fer.unizg.hr
 - **Ključne riječi**: Zagreb, garaža, parking
