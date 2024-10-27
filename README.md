@@ -25,8 +25,16 @@ Ovaj repozitorij sadrži otvorene podatke o garažama u Zagrebu. Podatci su dost
         "brojrazina" : 2, 
         "maksimalnavisina" : 2.4, 
         "dostupnostpovlastenekarte" : true, 
-        "tarife" : [{"pocetak" : "00:00:00", "kraj" : "24:00:00", "cijena" : 2.00}], 
-        "lokacija" : {"idlokacije" : 1, "opislokacije" : "tržni/poslovni centar"}
+        "tarife" :
+                [{
+                    "pocetak" : "00:00:00",
+                    "kraj" : "24:00:00",
+                    "cijena" : 2.00
+                }], 
+        "lokacija" : {
+                        "idlokacije" : 1,
+                        "opislokacije" : "tržni/poslovni centar"
+                    }
     }, ... 
 ]
 ```
