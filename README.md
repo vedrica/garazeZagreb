@@ -31,7 +31,7 @@ Ovaj repozitorij sadrži otvorene podatke o garažama u Zagrebu. Podatci su dost
 - **lokacija**: Informacija o lokaciji garaže, odnosno u sklopu čega se nalazi garaža
   - **idlokacije** (integer): Jedinstveni identifikator lokacije
   - **opislokacije** (string): Opis lokacije (npr. tržni/poslovni centar, javna garaža, bolnička garaža)
-> Napomena: U PostgreSQL-u korišten je tip `TIME` za definiranje atributa `pocetak` i `kraj`, što se u JSON i CSV formatu prikazuje kao HH:MM:SS (sati, minute i sekunde)
+> Napomena: U PostgreSQL-u korišten je tip `TIME` za definiranje atributa `pocetak` i `kraj`, što se u JSON i CSV formatu prikazuje kao HH:MM:SS (sati, minute i sekunde). Također, u bazi podataka je zapisivanje `maksimalnaVisina` korišteno `DECIMAL(3, 1)`, za `cijena` je korišteno `DECIMAL(5, 2)`, za sve atribute tipa string `VARCHAR(50)` osim za `broj` gdje je korišteno `VARCHAR(10)`.
 
 
 
