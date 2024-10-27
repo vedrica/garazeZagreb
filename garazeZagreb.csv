@@ -1,0 +1,17 @@
+idgaraza,imegaraza,ulica,broj,kvart,brojmjesta,brojrazina,maksimalnavisina,dostupnostpovlastenekarte,idtarifegaraze,cijena,pocetak,kraj,idlokacije,opislokacije
+1,Importanne Centar,Trg Ante Starčevića,7,Donji Grad,450,2,2.4,t,1,2.00,00:00:00,24:00:00,1,tržni/poslovni centar
+2,Importanne Galleria,Iblerov trg,10,Donji Grad,500,4,2.5,t,1,2.00,00:00:00,24:00:00,1,tržni/poslovni centar
+6,Kaptol Centar,Nova ves,17,Kaptol,461,2,2.1,t,1,2.00,00:00:00,24:00:00,1,tržni/poslovni centar
+3,Langov trg - Langić,Trg Josipa Langa,13,Medvešćak,305,6,2.1,t,2,1.60,08:00:00,21:00:00,2,javna garaža
+5,Petrinjska,Petrinjska ulica,59,Donji Grad,134,3,2.0,t,2,1.60,08:00:00,21:00:00,2,javna garaža
+10,Tuškanac,Tuškanac,1b,Tuškanac,465,4,2.3,t,2,1.60,08:00:00,21:00:00,2,javna garaža
+3,Langov trg - Langić,Trg Josipa Langa,13,Medvešćak,305,6,2.1,t,2,0.80,21:00:00,08:00:00,2,javna garaža
+5,Petrinjska,Petrinjska ulica,59,Donji Grad,134,3,2.0,t,2,0.80,21:00:00,08:00:00,2,javna garaža
+10,Tuškanac,Tuškanac,1b,Tuškanac,465,4,2.3,t,2,0.80,21:00:00,08:00:00,2,javna garaža
+8,KB Rebro,Kišpatićeva ulica,12,Maksimir,664,3,2.0,t,3,2.60,00:00:00,24:00:00,2,javna garaža
+4,Cvjetni,Varšavska ulica,13,Centar,292,6,2.2,t,3,2.60,00:00:00,24:00:00,1,tržni/poslovni centar
+7,Kvaternikov trg,Kvaternikov trg,6,Maksimir,354,3,2.1,t,4,1.10,08:00:00,18:00:00,2,javna garaža
+7,Kvaternikov trg,Kvaternikov trg,6,Maksimir,354,3,2.1,t,4,0.50,18:00:00,08:00:00,2,javna garaža
+9,KB Sveti Duh,Sveti Duh,64,Črnomerec,477,4,2.0,t,5,0.70,07:00:00,18:00:00,3,bolnički parking
+9,KB Sveti Duh,Sveti Duh,64,Črnomerec,477,4,2.0,t,5,0.40,18:00:00,07:00:00,3,bolnički parking
+11,Garage International,Miramarska,24,Trnje,447,9,2.2,t,7,1.50,00:00:00,24:00:00,1,tržni/poslovni centar
