@@ -12,6 +12,7 @@ Ovaj repozitorij sadrži otvorene podatke o garažama u Zagrebu. Podatci su dost
 -  
 
 ## Primjer podataka
+- json format:
 ```json:
 [
     {
@@ -27,10 +28,11 @@ Ovaj repozitorij sadrži otvorene podatke o garažama u Zagrebu. Podatci su dost
         "tarife" : [{"pocetak" : "00:00:00", "kraj" : "24:00:00", "cijena" : 2.00}], 
         "lokacija" : {"idlokacije" : 1, "opislokacije" : "tržni/poslovni centar"}
     }, ... 
-]```
+]
+```
 
-
-csv:
+- csv format:
+```csv:
 idgaraza,imegaraza,ulica,broj,kvart,brojmjesta,brojrazina,maksimalnavisina,dostupnostpovlastenekarte,idtarifegaraze,cijena,pocetak,kraj,idlokacije,opislokacije
 1,Importanne Centar,Trg Ante Starčevića,7,Donji Grad,450,2,2.4,t,1,2.00,00:00:00,24:00:00,1,tržni/poslovni centar
 
