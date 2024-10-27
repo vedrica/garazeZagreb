@@ -12,7 +12,7 @@ Ovaj repozitorij sadrži otvorene podatke o garažama u Zagrebu. Podatci su dost
 - **Kontakt**: vedran.vrabec@fer.unizg.hr
 - **Ključne riječi**: Zagreb, garaža, parking
 - **Područje**: Zagreb, Hrvatska
-- **Podrška**: Ako imate bilokakvih pitanja ili prijedloga, javite se na e-mail naveden gore.
+- **Podrška**: Ako imate bilokakvih pitanja, prijedloga ili uočenih grešaka, javite mi se na email koji je naveden u kontaktima.
 
 ## Opis atributa
 - **idgaraza** (integer): Jedinstveni identifikator garaže
@@ -31,7 +31,7 @@ Ovaj repozitorij sadrži otvorene podatke o garažama u Zagrebu. Podatci su dost
 - **lokacija**: Informacija o lokaciji garaže, odnosno u sklopu čega se nalazi garaža
   - **idlokacije** (integer): Jedinstveni identifikator lokacije
   - **opislokacije** (string): Opis lokacije (npr. tržni/poslovni centar, javna garaža, bolnička garaža)
-> Napomena: U PostgreSQL-u korišten je tip `TIME` za definiranje atributa `pocetak` i `kraj`, što se u JSON i CSV formatu prikazuje kao HH:MM:SS 
+> Napomena: U PostgreSQL-u korišten je tip `TIME` za definiranje atributa `pocetak` i `kraj`, što se u JSON i CSV formatu prikazuje kao HH:MM:SS (sati, minute i sekunde)
 
 
 
