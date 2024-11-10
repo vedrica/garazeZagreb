@@ -3,7 +3,7 @@
     "$id": "https://github.com/vedrica/garazeZagreb/blob/labos2/jsonSchema.json",
     "type": "array",
     "default": [],
-    "title": "Root Schema",
+    "title": "Garaže u Zagrebu",
     "items": {
         "type": "object",
         "title": "A Schema",
