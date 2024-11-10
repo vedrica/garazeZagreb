@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var path = require('path');
+const fs = require('fs');
 
 function jsonToCsv(jsonData) {
     let csv = '';
@@ -142,9 +143,15 @@ router.post('/getCSV', function(req, res){
             if (a.idgaraza > b.idgaraza) return 1;
             return uniqueResults.indexOf(a) - uniqueResults.indexOf(b);
         });
-        console.log("Results: " + JSON.stringify(results, null, 2));
-        const csv = jsonToCsv(results);
-        res.send(csv);
+        console.log("Results: " + results);
+        if(results[0] == null || results[0] == undefined){
+            res.send("");
+        }
+        else{
+            console.log("Tus sam");
+            const csv = jsonToCsv(results);
+            res.send(csv);
+        }
     });
 });
 
@@ -208,10 +215,14 @@ router.post('/getJSON', function(req, res){
     }
     Promise.all(queries).then(data => {
         let results = [];
-        console.log("Data: " + JSON.stringify(data, null, 2));
-        console.log("Data.rows: " + JSON.stringify(data[0].rows, null, 2));
-        if (data[0].rows && data[0].rows[0].json_agg) {
-            results = data[0].rows[0].json_agg;
+        const filePath = path.join(__dirname, '../public/results.json');
+        for(var i = 0; i < data.length; i++){
+            if(data[i] != null && data[i].rows[0].json_agg != null){
+                console.log("Novo data[i]: " + JSON.stringify(data[i].rows[0].json_agg, null, 2));
+                for(var j = 0; j < data[i].rows[0].json_agg.length; j++){
+                    results.push(data[i].rows[0].json_agg[j]);
+                }
+            }
         }
         let uniqueResults = Array.from(new Set(results.map(row => JSON.stringify(row))))
                                      .map(str => JSON.parse(str));

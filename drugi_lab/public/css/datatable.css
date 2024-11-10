@@ -85,8 +85,13 @@ button{
     border-radius: 5px;
     height: 35px;
     cursor: pointer;
-    margin: 10px;
+    margin: 10px 10px 0px;
 }
+
+button:hover{
+    background-color:lightcoral;
+}
+
 
 #pomocBaza{
     width: 100%;
