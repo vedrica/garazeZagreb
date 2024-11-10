@@ -1,0 +1,404 @@
+[
+  {
+    "idGaraza": 1,
+    "imeGaraza": "Importanne Centar",
+    "ulica": "Trg Ante Starčevića",
+    "broj": "7",
+    "kvart": "Donji Grad",
+    "brojMjesta": 450,
+    "brojRazina": 2,
+    "maksimalnaVisina": 2.4,
+    "dostupnostPovlasteneKarte": true,
+    "tarife": [
+      {
+        "pocetak": "00:00:00",
+        "kraj": "24:00:00",
+        "cijena": 2
+      }
+    ],
+    "lokacija": {
+      "idlokacije": 1,
+      "opislokacije": "tržni/poslovni centar"
+    }
+  },
+  {
+    "idGaraza": 2,
+    "imeGaraza": "Importanne Galleria",
+    "ulica": "Iblerov trg",
+    "broj": "10",
+    "kvart": "Donji Grad",
+    "brojMjesta": 500,
+    "brojRazina": 4,
+    "maksimalnaVisina": 2.5,
+    "dostupnostPovlasteneKarte": true,
+    "tarife": [
+      {
+        "pocetak": "00:00:00",
+        "kraj": "24:00:00",
+        "cijena": 2
+      }
+    ],
+    "lokacija": {
+      "idlokacije": 1,
+      "opislokacije": "tržni/poslovni centar"
+    }
+  },
+  {
+    "idGaraza": 3,
+    "imeGaraza": "Langov trg - Langić",
+    "ulica": "Trg Josipa Langa",
+    "broj": "13",
+    "kvart": "Medvešćak",
+    "brojMjesta": 305,
+    "brojRazina": 6,
+    "maksimalnaVisina": 2.1,
+    "dostupnostPovlasteneKarte": true,
+    "tarife": [
+      {
+        "pocetak": "08:00:00",
+        "kraj": "21:00:00",
+        "cijena": 1.6
+      },
+      {
+        "pocetak": "21:00:00",
+        "kraj": "08:00:00",
+        "cijena": 0.8
+      }
+    ],
+    "lokacija": {
+      "idlokacije": 2,
+      "opislokacije": "javna garaža"
+    }
+  },
+  {
+    "idGaraza": 3,
+    "imeGaraza": "Langov trg - Langić",
+    "ulica": "Trg Josipa Langa",
+    "broj": "13",
+    "kvart": "Medvešćak",
+    "brojMjesta": 305,
+    "brojRazina": 6,
+    "maksimalnaVisina": 2.1,
+    "dostupnostPovlasteneKarte": true,
+    "tarife": [
+      {
+        "pocetak": "08:00:00",
+        "kraj": "21:00:00",
+        "cijena": 1.6
+      },
+      {
+        "pocetak": "21:00:00",
+        "kraj": "08:00:00",
+        "cijena": 0.8
+      }
+    ],
+    "lokacija": {
+      "idlokacije": 2,
+      "opislokacije": "javna garaža"
+    }
+  },
+  {
+    "idGaraza": 4,
+    "imeGaraza": "Cvjetni",
+    "ulica": "Varšavska ulica",
+    "broj": "13",
+    "kvart": "Centar",
+    "brojMjesta": 292,
+    "brojRazina": 6,
+    "maksimalnaVisina": 2.2,
+    "dostupnostPovlasteneKarte": true,
+    "tarife": [
+      {
+        "pocetak": "00:00:00",
+        "kraj": "24:00:00",
+        "cijena": 2.6
+      }
+    ],
+    "lokacija": {
+      "idlokacije": 1,
+      "opislokacije": "tržni/poslovni centar"
+    }
+  },
+  {
+    "idGaraza": 5,
+    "imeGaraza": "Petrinjska",
+    "ulica": "Petrinjska ulica",
+    "broj": "59",
+    "kvart": "Donji Grad",
+    "brojMjesta": 134,
+    "brojRazina": 3,
+    "maksimalnaVisina": 2,
+    "dostupnostPovlasteneKarte": true,
+    "tarife": [
+      {
+        "pocetak": "08:00:00",
+        "kraj": "21:00:00",
+        "cijena": 1.6
+      },
+      {
+        "pocetak": "21:00:00",
+        "kraj": "08:00:00",
+        "cijena": 0.8
+      }
+    ],
+    "lokacija": {
+      "idlokacije": 2,
+      "opislokacije": "javna garaža"
+    }
+  },
+  {
+    "idGaraza": 5,
+    "imeGaraza": "Petrinjska",
+    "ulica": "Petrinjska ulica",
+    "broj": "59",
+    "kvart": "Donji Grad",
+    "brojMjesta": 134,
+    "brojRazina": 3,
+    "maksimalnaVisina": 2,
+    "dostupnostPovlasteneKarte": true,
+    "tarife": [
+      {
+        "pocetak": "08:00:00",
+        "kraj": "21:00:00",
+        "cijena": 1.6
+      },
+      {
+        "pocetak": "21:00:00",
+        "kraj": "08:00:00",
+        "cijena": 0.8
+      }
+    ],
+    "lokacija": {
+      "idlokacije": 2,
+      "opislokacije": "javna garaža"
+    }
+  },
+  {
+    "idGaraza": 6,
+    "imeGaraza": "Kaptol Centar",
+    "ulica": "Nova ves",
+    "broj": "17",
+    "kvart": "Kaptol",
+    "brojMjesta": 461,
+    "brojRazina": 2,
+    "maksimalnaVisina": 2.1,
+    "dostupnostPovlasteneKarte": true,
+    "tarife": [
+      {
+        "pocetak": "00:00:00",
+        "kraj": "24:00:00",
+        "cijena": 2
+      }
+    ],
+    "lokacija": {
+      "idlokacije": 1,
+      "opislokacije": "tržni/poslovni centar"
+    }
+  },
+  {
+    "idGaraza": 7,
+    "imeGaraza": "Kvaternikov trg",
+    "ulica": "Kvaternikov trg",
+    "broj": "6",
+    "kvart": "Maksimir",
+    "brojMjesta": 354,
+    "brojRazina": 3,
+    "maksimalnaVisina": 2.1,
+    "dostupnostPovlasteneKarte": true,
+    "tarife": [
+      {
+        "pocetak": "08:00:00",
+        "kraj": "18:00:00",
+        "cijena": 1.1
+      },
+      {
+        "pocetak": "18:00:00",
+        "kraj": "08:00:00",
+        "cijena": 0.5
+      }
+    ],
+    "lokacija": {
+      "idlokacije": 2,
+      "opislokacije": "javna garaža"
+    }
+  },
+  {
+    "idGaraza": 7,
+    "imeGaraza": "Kvaternikov trg",
+    "ulica": "Kvaternikov trg",
+    "broj": "6",
+    "kvart": "Maksimir",
+    "brojMjesta": 354,
+    "brojRazina": 3,
+    "maksimalnaVisina": 2.1,
+    "dostupnostPovlasteneKarte": true,
+    "tarife": [
+      {
+        "pocetak": "08:00:00",
+        "kraj": "18:00:00",
+        "cijena": 1.1
+      },
+      {
+        "pocetak": "18:00:00",
+        "kraj": "08:00:00",
+        "cijena": 0.5
+      }
+    ],
+    "lokacija": {
+      "idlokacije": 2,
+      "opislokacije": "javna garaža"
+    }
+  },
+  {
+    "idGaraza": 8,
+    "imeGaraza": "KB Rebro",
+    "ulica": "Kišpatićeva ulica",
+    "broj": "12",
+    "kvart": "Maksimir",
+    "brojMjesta": 664,
+    "brojRazina": 3,
+    "maksimalnaVisina": 2,
+    "dostupnostPovlasteneKarte": true,
+    "tarife": [
+      {
+        "pocetak": "07:00:00",
+        "kraj": "18:00:00",
+        "cijena": 0.8
+      },
+      {
+        "pocetak": "18:00:00",
+        "kraj": "07:00:00",
+        "cijena": 0.4
+      }
+    ],
+    "lokacija": {
+      "idlokacije": 2,
+      "opislokacije": "javna garaža"
+    }
+  },
+  {
+    "idGaraza": 8,
+    "imeGaraza": "KB Rebro",
+    "ulica": "Kišpatićeva ulica",
+    "broj": "12",
+    "kvart": "Maksimir",
+    "brojMjesta": 664,
+    "brojRazina": 3,
+    "maksimalnaVisina": 2,
+    "dostupnostPovlasteneKarte": true,
+    "tarife": [
+      {
+        "pocetak": "07:00:00",
+        "kraj": "18:00:00",
+        "cijena": 0.8
+      },
+      {
+        "pocetak": "18:00:00",
+        "kraj": "07:00:00",
+        "cijena": 0.4
+      }
+    ],
+    "lokacija": {
+      "idlokacije": 2,
+      "opislokacije": "javna garaža"
+    }
+  },
+  {
+    "idGaraza": 9,
+    "imeGaraza": "KB Sveti Duh",
+    "ulica": "Sveti Duh",
+    "broj": "64",
+    "kvart": "Črnomerec",
+    "brojMjesta": 477,
+    "brojRazina": 4,
+    "maksimalnaVisina": 2,
+    "dostupnostPovlasteneKarte": true,
+    "tarife": [
+      {
+        "pocetak": "07:00:00",
+        "kraj": "18:00:00",
+        "cijena": 0.7
+      },
+      {
+        "pocetak": "18:00:00",
+        "kraj": "07:00:00",
+        "cijena": 0.4
+      }
+    ],
+    "lokacija": {
+      "idlokacije": 3,
+      "opislokacije": "bolnički parking"
+    }
+  },
+  {
+    "idGaraza": 9,
+    "imeGaraza": "KB Sveti Duh",
+    "ulica": "Sveti Duh",
+    "broj": "64",
+    "kvart": "Črnomerec",
+    "brojMjesta": 477,
+    "brojRazina": 4,
+    "maksimalnaVisina": 2,
+    "dostupnostPovlasteneKarte": true,
+    "tarife": [
+      {
+        "pocetak": "07:00:00",
+        "kraj": "18:00:00",
+        "cijena": 0.7
+      },
+      {
+        "pocetak": "18:00:00",
+        "kraj": "07:00:00",
+        "cijena": 0.4
+      }
+    ],
+    "lokacija": {
+      "idlokacije": 3,
+      "opislokacije": "bolnički parking"
+    }
+  },
+  {
+    "idGaraza": 10,
+    "imeGaraza": "Tuškanac",
+    "ulica": "Tuškanac",
+    "broj": "1b",
+    "kvart": "Tuškanac",
+    "brojMjesta": 465,
+    "brojRazina": 4,
+    "maksimalnaVisina": 2.3,
+    "dostupnostPovlasteneKarte": true,
+    "tarife": [
+      {
+        "pocetak": "08:00:00",
+        "kraj": "21:00:00",
+        "cijena": 1.6
+      }
+    ],
+    "lokacija": {
+      "idlokacije": 2,
+      "opislokacije": "javna garaža"
+    }
+  },
+  {
+    "idGaraza": 11,
+    "imeGaraza": "Garage International",
+    "ulica": "Miramarska",
+    "broj": "24",
+    "kvart": "Trnje",
+    "brojMjesta": 447,
+    "brojRazina": 9,
+    "maksimalnaVisina": 2.2,
+    "dostupnostPovlasteneKarte": true,
+    "tarife": [
+      {
+        "pocetak": "00:00:00",
+        "kraj": "24:00:00",
+        "cijena": 1.5
+      }
+    ],
+    "lokacija": {
+      "idlokacije": 1,
+      "opislokacije": "tržni/poslovni centar"
+    }
+  }
+]
