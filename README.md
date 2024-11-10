@@ -1,4 +1,4 @@
-# Otvoreni podatci o garažama u Zagrebu
+# Stranica za pretragu garaža u Zagrebu
 
 Ovaj repozitorij sadrži otvorene podatke o garažama u Zagrebu. Podatci su dostupni u .csv i .json formatu te u obliku dumpa PostgreSQL baze podataka.
 
