@@ -1,6 +1,6 @@
 # Stranica za pretragu garaža u Zagrebu
 
-Ovaj repozitorij sadrži otvorene podatke o garažama u Zagrebu te web sučelje za dobivanje i filtraciju tih podataka. Podatci su dostupni u .csv i .json formatu te u obliku dumpa PostgreSQL baze podataka.
+Ovaj repozitorij sadrži otvorene podatke o garažama u Zagrebu te web sučelje za dobivanje i filtraciju tih podataka. Podatci su dostupni u .csv i .json formatu te u obliku dumpa PostgreSQL baze podataka. Cijeli projekt je napravljen za potrebe laboratorijskih vježbi na FER-u iz predmeta Otvoreno računarstvo.
 
 ## Metapodatci
 
