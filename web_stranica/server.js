@@ -29,7 +29,10 @@ app.use(session({
 
 const homeRouter = require('./routes/home.routes');
 const searchRouter = require('./routes/search.routes');
+const apiRouter = require('./routes/api.routes');
+
 app.use('/search', searchRouter);
+app.use('/api', apiRouter);
 app.use('/', homeRouter);
 
 app.listen(3000);
