@@ -100,14 +100,130 @@ async function queryDatabase(query, values, res){
     });
 }
 
+function isInteger(value) {
+    return /^\d+$/.test(value);
+}
+
 router.head('*', function(req, res){
     res.status(501).json();
 });
 
+router.get('/brojMjesta', async function(req, res){
+    const { operator, value, ...rest } = req.query;
+    console.log("operator: " + operator + ", value: " + value);
+    if(operator == null || value == null){
+        res.status(400).json({
+            status: "Bad Request",
+            message: "Query parameters operator and value are required",
+            response: null
+        });
+        return;
+    }
+    if(operator != 'lt' && operator != 'gt' && operator != 'eq'){
+        res.status(400).json({
+            status: "Bad Request",
+            message: "Invalid operator",
+            response: null
+        });
+        return;
+    }
+    if(!isInteger(value) && value >= 0){
+        res.status(400).json({
+            status: "Bad Request",
+            message: "Value must be an integer greater than or equal to 0",
+            response: null
+        });
+        return;
+    }
+    if(rest != null && Object.keys(rest).length > 0){
+        res.status(400).json({
+            status: "Bad Request",
+            message: "Invalid query parameters",
+            response: null
+        });
+        return;
+    }
+    try{
+        let operatorSQL = "=";
+        if(operator == 'lt')
+            operatorSQL = "<";
+        else if(operator == 'gt')
+            operatorSQL = ">";
+
+        var query = startQuery + ` WHERE brojMjesta ${operatorSQL} $1`;
+        var data = await queryDatabase(query, [value], res);
+        let uniqueResults = Array.from(new Set(data.rows.map(row => JSON.stringify(row))))
+                                 .map(str => JSON.parse(str));
+        data.rows = JSON.parse(JSON.stringify(uniqueResults));
+        data.rows.sort((a, b) => {
+            if (a.idgaraza < b.idgaraza) return -1;
+            if (a.idgaraza > b.idgaraza) return 1;
+            return uniqueResults.indexOf(a) - uniqueResults.indexOf(b);
+        });
+
+        res.setHeader('Content-Disposition', 'attachment; filename="data.json"');
+        res.setHeader('Content-Type', 'application/json');
+        res.status(200).send(JSON.stringify({
+            status: "OK",
+            message: "Data fetched successfully",
+            response: {
+                data: data.rows
+            }
+        }, null, 2));
+    }
+    catch(err){
+        console.error('Error executing query', err.stack);
+        res.status(500).json({
+            status: 'Internal Server Error',
+            message: 'Error executing query',
+            response: null
+        });
+    }
+});
+
+router.get('/name', async function(req, res){
+    const { value, ...rest } = req.query;
+    if(value == null){
+        res.status(400).json({
+            status: "Bad Request",
+            message: "Query parameter value is required",
+            response: null
+        });
+        return;
+    }
+    if(rest != null && Object.keys(rest).length > 0){
+        res.status(400).json({
+            status: "Bad Request",
+            message: "Invalid query parameters",
+            response: null
+        });
+        return;
+    }
+    const searchValue = `%${value}%`;
+    var query = startQuery + ` WHERE imeGaraza LIKE $1`;
+    var data = await queryDatabase(query, [searchValue], res);
+    let uniqueResults = Array.from(new Set(data.rows.map(row => JSON.stringify(row))))
+                                    .map(str => JSON.parse(str));
+    data.rows = JSON.parse(JSON.stringify(uniqueResults));
+    data.rows.sort((a, b) => {
+        if (a.idgaraza < b.idgaraza) return -1;
+        if (a.idgaraza > b.idgaraza) return 1;
+        return uniqueResults.indexOf(a) - uniqueResults.indexOf(b);
+    });
+    res.setHeader('Content-Disposition', 'attachment; filename="data.json"');
+    res.setHeader('Content-Type', 'application/json');
+    res.status(200).send(JSON.stringify({
+        status: "OK",
+        message: "Data fetched successfully",
+        response: {
+            data: data.rows
+        }
+    }, null, 2));
+});
+
 router.get('/:idGaraze', function(req, res){
     try{
-        let idGaraze = parseInt(req.params.idGaraze);
-        if(isNaN(idGaraze)){
+        if(!isInteger(req.params.idGaraze)){
             throw new Error("idGaraze must be an integer");
         }
     }
@@ -282,6 +398,19 @@ router.post('/', async function(req, res){
 });
 
 router.delete('/:idGaraze', function(req, res){
+    try{
+        if(!isInteger(req.params.idGaraze)){
+            throw new Error("idGaraze must be an integer");
+        }
+    }
+    catch(err){
+        res.status(400).json({
+            status: "Bad Request",
+            message: `${req.params.idGaraze} is not a valid integer`,
+            response: null
+        });
+        return;
+    }
     global.pool.query(`DELETE FROM garaze WHERE idGaraza = $1`, [req.params.idGaraze], (err, data) => {
         if(err){
             console.error('Error executing query', err.stack);
@@ -308,7 +437,74 @@ router.delete('/:idGaraze', function(req, res){
     });
 });
 
+router.get('/tipLokacije/:idLokacije', function(req, res){
+    try{
+        if(!isInteger(req.params.idLokacije)){
+            throw new Error("idLokacije must be an integer");
+        }
+    }
+    catch(err){
+        res.status(400).json({
+            status: "Bad Request",
+            message: `${req.params.idLokacije} is not a valid integer`,
+            response: null
+        });
+        return;
+    }
+    var query = startQuery + " WHERE tipLokacije = $1";
+    global.pool.query(query, [req.params.idLokacije], (err, data) => {
+        if(err){
+            console.error('Error executing query', err.stack);
+            res.status(500).json({
+                status: 'Internal Server Error',
+                message: 'Error executing query',
+                response: null
+            });
+            return;
+        }
+        // if(data.rows.length == 0){
+        //     res.status(404).json({
+        //         status: 'Not Found',
+        //         message: 'Resource not found, nothing to fetch',
+        //         response: null            
+        //     });
+        //     return;
+        // }
+        let uniqueResults = Array.from(new Set(data.rows.map(row => JSON.stringify(row))))
+                                 .map(str => JSON.parse(str));
+        data.rows = JSON.parse(JSON.stringify(uniqueResults));
+        data.rows.sort((a, b) => {
+            if (a.idgaraza < b.idgaraza) return -1;
+            if (a.idgaraza > b.idgaraza) return 1;
+            return uniqueResults.indexOf(a) - uniqueResults.indexOf(b);
+        });
+
+        res.setHeader('Content-Disposition', 'attachment; filename="data.json"');
+        res.setHeader('Content-Type', 'application/json');
+        res.status(200).send(JSON.stringify({
+            status: "OK",
+            message: "Data fetched successfully",
+            response: {
+                data: data.rows
+            }
+        }, null, 2));
+    });
+});
+
 router.put('/:idGaraze', async function(req, res){
+    try{
+        if(!isInteger(req.params.idGaraze)){
+            throw new Error("idGaraze must be an integer");
+        }
+    }
+    catch(err){
+        res.status(400).json({
+            status: "Bad Request",
+            message: `${req.params.idGaraze} is not a valid integer`,
+            response: null
+        });
+        return;
+    }
     const error = putSchema.validate(req.body).error;
     if(error){
         res.status(400).json({
@@ -387,15 +583,6 @@ router.put('/:idGaraze', async function(req, res){
             query = "INSERT INTO garazatarife (idGaraza, idTarife) VALUES ($1, $2)";
             values = [req.params.idGaraze, tarifeId[i]];
             await queryDatabase(query, values, res);
-        }
-        
-        if(data.rowCount == 0){
-            res.status(404).json({
-                status: 'Not Found',
-                message: 'Resource not found, nothing to update',
-                response: null            
-            });
-            return;
         }
         res.status(200).json({
             status: "OK",
