@@ -204,7 +204,8 @@ router.post('/', async function(req, res){
                 });
                 return;
             }
-            if(data.rows[0].opisLokacije != req.body.lokacija.opisLokacije){
+            console.log("data: " + JSON.stringify(data, null, 2));  
+            if(data.rows[0].opislokacije != req.body.lokacija.opisLokacije){
                 res.status(400).json({
                     status: "Bad Request",
                     message: "Invalid opisLokacije for given idLokacije",
@@ -212,6 +213,7 @@ router.post('/', async function(req, res){
                 });
                 return;
             }
+            req.body.lokacija = data.rows[0].opislokacije; // da bi se kasnije moglo koristiti
         }
         else{
             let data = await queryDatabase("SELECT idLokacije FROM tiplokacije WHERE opisLokacije = $1", [req.body.lokacija], res);
@@ -329,7 +331,7 @@ router.put('/:idGaraze', async function(req, res){
                 });
                 return;
             }
-            if(data.rows[0].opisLokacije != req.body.lokacija.opisLokacije){
+            if(data.rows[0].opislokacije != req.body.lokacija.opisLokacije){
                 res.status(400).json({
                     status: "Bad Request",
                     message: "Invalid opisLokacije for given idLokacije",
@@ -337,6 +339,7 @@ router.put('/:idGaraze', async function(req, res){
                 });
                 return;
             }
+            lokacijaId = data.rows[0].idlokacije;
         }
         else{
             let data = await queryDatabase("SELECT idLokacije FROM tiplokacije WHERE opisLokacije = $1", [req.body.lokacija], res);
@@ -375,6 +378,17 @@ router.put('/:idGaraze', async function(req, res){
             WHERE idGaraza = $10`;
         var values = [req.body.imeGaraza, req.body.ulica, req.body.broj, req.body.kvart, req.body.brojMjesta, req.body.brojRazina, req.body.maksimalnaVisina, req.body.dostupnostPovlasteneKarte, lokacijaId, req.params.idGaraze];
         const data = await queryDatabase(query, values, res);
+        
+        query = `DELETE FROM garazatarife WHERE idGaraza = $1`;
+        values = [req.params.idGaraze];
+        await queryDatabase(query, values, res);
+
+        for(var i = 0; i < tarifeId.length; i++){
+            query = "INSERT INTO garazatarife (idGaraza, idTarife) VALUES ($1, $2)";
+            values = [req.params.idGaraze, tarifeId[i]];
+            await queryDatabase(query, values, res);
+        }
+        
         if(data.rowCount == 0){
             res.status(404).json({
                 status: 'Not Found',
