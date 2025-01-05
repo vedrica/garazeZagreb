@@ -1,20 +1,20 @@
 var express = require('express');
 const { stat } = require('fs');
 var router = express.Router();
-var path = require('path');
+const path = require('path');
+const fs = require('fs');
 const joi = require('joi');
-const { assert } = require('console');
 
 const postSchema = joi.object({
     // idGaraza: joi.number().required(),   ovo se generira u bazi automatski
-    imeGaraza: joi.string().required(),
+    imegaraza: joi.string().required(),
     ulica: joi.string().required(),
     broj: joi.number().required(),
     kvart: joi.string().required(),
-    brojMjesta: joi.number().required(),
-    brojRazina: joi.number().required(),
-    maksimalnaVisina: joi.number().required(),
-    dostupnostPovlasteneKarte: joi.boolean().required(),
+    brojmjesta: joi.number().required(),
+    brojrazina: joi.number().required(),
+    maksimalnavisina: joi.number().required(),
+    dostupnostpovlastenekarte: joi.boolean().required(),
     tarife: joi.array().items(joi.object({
         pocetak: joi.string().required(),
         kraj: joi.string().required(),
@@ -23,23 +23,23 @@ const postSchema = joi.object({
     // za lokaciju dopustamo objekt s id i opisom ili samo opis (opis mora postojati u bazi)
     lokacija: joi.alternatives().try(
         joi.object({
-            idLokacije: joi.number().required(),
-            opisLokacije: joi.string().required()
+            idlokacije: joi.number().required(),
+            opislokacije: joi.string().required()
         }),
         joi.string().required()
     ).required()
 });
 
 const putSchema = joi.object({
-    idGaraza: joi.number().required(),
-    imeGaraza: joi.string().required(),
+    idgaraza: joi.number().required(),
+    imegaraza: joi.string().required(),
     ulica: joi.string().required(),
     broj: joi.number().required(),
     kvart: joi.string().required(),
-    brojMjesta: joi.number().required(),
-    brojRazina: joi.number().required(),
-    maksimalnaVisina: joi.number().required(),
-    dostupnostPovlasteneKarte: joi.boolean().required(),
+    brojmjesta: joi.number().required(),
+    brojrazina: joi.number().required(),
+    maksimalnavisina: joi.number().required(),
+    dostupnostpovlastenekarte: joi.boolean().required(),
     tarife: joi.array().items(joi.object({
         pocetak: joi.string().required(),
         kraj: joi.string().required(),
@@ -48,8 +48,8 @@ const putSchema = joi.object({
     // za lokaciju dopustamo objekt s id i opisom ili samo opis (opis mora postojati u bazi)
     lokacija: joi.alternatives().try(
         joi.object({
-            idLokacije: joi.number().required(),
-            opisLokacije: joi.string().required()
+            idlokacije: joi.number().required(),
+            opislokacije: joi.string().required()
         }),
         joi.string().required()
     ).required()
@@ -127,7 +127,7 @@ router.get('/brojMjesta', async function(req, res){
         });
         return;
     }
-    if(!isInteger(value) && value >= 0){
+    if(Array.isArray(value) || !isInteger(value) && value >= 0){
         res.status(400).json({
             status: "Bad Request",
             message: "Value must be an integer greater than or equal to 0",
@@ -191,7 +191,7 @@ router.get('/name', async function(req, res){
         });
         return;
     }
-    if(rest != null && Object.keys(rest).length > 0){
+    if(rest != null && Object.keys(rest).length > 0 || Array.isArray(value)){
         res.status(400).json({
             status: "Bad Request",
             message: "Invalid query parameters",
@@ -219,6 +219,23 @@ router.get('/name', async function(req, res){
             data: data.rows
         }
     }, null, 2));
+});
+
+router.get('/specifikacija', function(req, res){
+    const filePath = path.join(__dirname, '../data', 'openapi.json');
+    fs.readFile(filePath, 'utf8', (err, data) => {
+        if(err){
+            console.error('Error reading file', err.stack);
+            res.status(500).json({
+                status: 'Internal Server Error',
+                message: 'Error reading file',
+                response: null
+            });
+        }
+        res.setHeader('Content-Disposition', 'attachment; filename="openapi.json"');
+        res.setHeader('Content-Type', 'application/json');
+        res.status(200).send(data);
+    });
 });
 
 router.get('/:idGaraze', function(req, res){
@@ -284,6 +301,14 @@ router.get('/', function(req, res){
             console.error('Error executing query', err.stack);
             res.status(500).json({error: 'Error executing query'});
         } else {
+            let uniqueResults = Array.from(new Set(data.rows.map(row => JSON.stringify(row)))
+                                        ).map(str => JSON.parse(str));
+            data.rows = JSON.parse(JSON.stringify(uniqueResults));
+            data.rows.sort((a, b) => {
+                if (a.idgaraza < b.idgaraza) return -1;
+                if (a.idgaraza > b.idgaraza) return 1;
+                return uniqueResults.indexOf(a) - uniqueResults.indexOf(b);
+            });
             res.setHeader('Content-Disposition', 'attachment; filename="data.json"');
             res.setHeader('Content-Type', 'application/json');
             res.status(200).send(JSON.stringify({
@@ -310,7 +335,7 @@ router.post('/', async function(req, res){
     try{
         let tarifeId = [], lokacijaId;
         if(typeof req.body.lokacija === 'object'){
-            lokacijaId = req.body.lokacija.idLokacije;
+            lokacijaId = req.body.lokacija.idlokacije;
             let data = await queryDatabase("SELECT * FROM tiplokacije WHERE idLokacije = $1", [lokacijaId], res);
             if(data.rows.length == 0){
                 res.status(400).json({
@@ -321,7 +346,7 @@ router.post('/', async function(req, res){
                 return;
             }
             console.log("data: " + JSON.stringify(data, null, 2));  
-            if(data.rows[0].opislokacije != req.body.lokacija.opisLokacije){
+            if(data.rows[0].opislokacije != req.body.lokacija.opislokacije){
                 res.status(400).json({
                     status: "Bad Request",
                     message: "Invalid opisLokacije for given idLokacije",
@@ -371,7 +396,7 @@ router.post('/', async function(req, res){
             VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) \
             RETURNING idGaraza";
 
-        var values = [req.body.imeGaraza, req.body.ulica, req.body.broj, req.body.kvart, req.body.brojMjesta, req.body.brojRazina, req.body.maksimalnaVisina, req.body.dostupnostPovlasteneKarte, lokacijaId];
+        var values = [req.body.imegaraza, req.body.ulica, req.body.broj, req.body.kvart, req.body.brojmjesta, req.body.brojrazina, req.body.maksimalnavisina, req.body.dostupnostpovlastenekarte, lokacijaId];
 
         let data = await queryDatabase(query, values, res);
         //console.log("data: " + JSON.stringify(data, null, 2));
@@ -517,7 +542,7 @@ router.put('/:idGaraze', async function(req, res){
     try{
         let tarifeId = [], lokacijaId;
         if(typeof req.body.lokacija === 'object'){
-            lokacijaId = req.body.lokacija.idLokacije;
+            lokacijaId = req.body.lokacija.idlokacije;
             let data = await queryDatabase("SELECT * FROM tiplokacije WHERE idLokacije = $1", [lokacijaId], res);
             if(data.rows.length == 0){
                 res.status(400).json({
@@ -527,7 +552,7 @@ router.put('/:idGaraze', async function(req, res){
                 });
                 return;
             }
-            if(data.rows[0].opislokacije != req.body.lokacija.opisLokacije){
+            if(data.rows[0].opislokacije != req.body.lokacija.opislokacije){
                 res.status(400).json({
                     status: "Bad Request",
                     message: "Invalid opisLokacije for given idLokacije",
@@ -572,7 +597,7 @@ router.put('/:idGaraze', async function(req, res){
         var query = `UPDATE garaze
             SET imeGaraza = $1, ulica = $2, broj = $3, kvart = $4, brojMjesta = $5, brojRazina = $6, maksimalnaVisina = $7, dostupnostPovlasteneKarte = $8, tipLokacije = $9
             WHERE idGaraza = $10`;
-        var values = [req.body.imeGaraza, req.body.ulica, req.body.broj, req.body.kvart, req.body.brojMjesta, req.body.brojRazina, req.body.maksimalnaVisina, req.body.dostupnostPovlasteneKarte, lokacijaId, req.params.idGaraze];
+        var values = [req.body.imegaraza, req.body.ulica, req.body.broj, req.body.kvart, req.body.brojmjesta, req.body.brojrazina, req.body.maksimalnavisina, req.body.dostupnostpovlastenekarte, lokacijaId, req.params.idGaraze];
         const data = await queryDatabase(query, values, res);
         
         query = `DELETE FROM garazatarife WHERE idGaraza = $1`;

@@ -1,0 +1,617 @@
+{
+    "openapi": "3.0.3",
+    "info": {
+        "title": "Garaže u Zagrebu",
+        "version": "3.0",
+        "license": {
+            "name": "CC0",
+            "url": "https://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "contact": {
+            "name": "Vedran Vrabec",
+            "email": "vedran.vrabec@fer.hr"
+        }
+    },
+    "paths": {
+        "/api": {
+            "get": {
+                "summary": "Get all garages",
+                "description": "Fetch all garages.",
+                "responses": {
+                    "200": {
+                        "description": "A list of all garages.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GarazaResponse"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal server error.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "summary": "Create a new garage",
+                "description": "Create a new garage.",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/GarazaPost"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Garage created.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GarazaResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal server error.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/{idGaraze}":{
+            "get": {
+                "summary": "Get garage by ID",
+                "description": "Fetch a garage by ID.",
+                "parameters": [
+                    {
+                        "name": "idGaraze",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Garage found.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GarazaResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Garage not found.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal server error.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "summary": "Update garage by ID",
+                "description": "Update a garage by ID.",
+                "parameters": [
+                    {
+                        "name": "idGaraze",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Garaza"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Garage updated.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GarazaResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Garage not found.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal server error.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Delete garage by ID",
+                "description": "Delete a garage by ID.",
+                "parameters": [
+                    {
+                        "name": "idGaraze",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Garage deleted.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GarazaResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Garage not found.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal server error.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/name": {
+            "get": {
+                "summary": "Get garage by name",
+                "description": "Fetch a garage by name.",
+                "parameters": [
+                    {
+                        "name": "value",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "description": "Garage name, case sensitive."
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Garage found.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GarazaResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Garage not found.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal server error.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/tipLokacije/{idLokacije}": {
+            "get": {
+                "summary": "Get garages by location",
+                "description": "Fetch garages by location.",
+                "parameters": [
+                    {
+                        "name": "idLokacije",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Garages found.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GarazaResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal server error.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/brojMjesta": {
+            "get": {
+                "summary": "Get garages by number of spaces",
+                "description": "Fetch garages based on the number of parking spaces.",
+                "parameters": [
+                    {
+                        "name": "operator",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "enum": ["lt", "eq", "gt"]
+                        },
+                        "description": "The comparison operator (lt: less than, eq: equal to, gt: greater than)."
+                    },
+                    {
+                        "name": "value",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "description": "The number of parking spaces to compare against."
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Garages found.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GarazaResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal server error.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/specifikacija": {
+            "get": {
+                "summary": "Get garage specification",
+                "description": "Fetch the specification of a garage.",
+                "responses": {
+                    "200": {
+                        "description": "Garage specification found.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Garaza"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal server error.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Garaza": {
+                "type": "object",
+                "properties": {
+                    "idgaraza": {
+                        "type": "integer"
+                    },
+                    "imegaraza": {
+                        "type": "string"
+                    },
+                    "ulica": {
+                        "type": "string"
+                    },
+                    "broj": {
+                        "type": "string"
+                    },
+                    "kvart": {
+                        "type": "string"
+                    },
+                    "brojmjesta": {
+                        "type": "integer"
+                    },
+                    "brojrazina": {
+                        "type": "integer"
+                    },
+                    "maksimalnavisina": {
+                        "type": "number"
+                    },
+                    "dostupnostpovlastenekarte": {
+                        "type": "boolean"
+                    },
+                    "tarife":
+                    {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "pocetak": {
+                                    "type": "string",
+                                    "format": "time"
+                                },
+                                "kraj": {
+                                    "type": "string",
+                                    "format": "time"
+                                },
+                                "cijena": {
+                                    "type": "number"
+                                }
+                            },
+                            "required": ["pocetak", "kraj", "cijena"]
+                        }
+                    },
+                    "lokacija": {
+                        "type": "object",
+                        "properties": {
+                            "idlokacije": {
+                                "type": "integer"
+                            },
+                            "opislokacije": {
+                                "type": "string"
+                            }
+                        },
+                        "required": ["idlokacije", "opislokacije"]
+                    }
+                }
+            },
+            "GarazaPost": {
+                "type": "object",
+                "properties": {
+                    "imegaraza": {
+                        "type": "string"
+                    },
+                    "ulica": {
+                        "type": "string"
+                    },
+                    "broj": {
+                        "type": "string"
+                    },
+                    "kvart": {
+                        "type": "string"
+                    },
+                    "brojmjesta": {
+                        "type": "integer"
+                    },
+                    "brojrazina": {
+                        "type": "integer"
+                    },
+                    "maksimalnavisina": {
+                        "type": "number"
+                    },
+                    "dostupnostpovlastenekarte": {
+                        "type": "boolean"
+                    },
+                    "lokacija": {
+                        "oneOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "object",
+                                "properties": {
+                                "idlokacije": {
+                                    "type": "integer"
+                                },
+                                "opislokacije": {
+                                    "type": "string"
+                                }
+                                },
+                                "required": ["idlokacije", "opislokacije"]
+                            }
+                        ]
+                    }
+                }
+            },
+            "GarazaResponse": {
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "type": "string"
+                    },
+                    "message": {
+                        "type": "string"
+                    },
+                    "response": {
+                        "type": "object",
+                        "properties": {
+                            "data": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/Garaza"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "ErrorResponse": {
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "type": "string"
+                    },
+                    "message": {
+                        "type": "string"
+                    },
+                    "response": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                }
+            }
+        }
+    }
+}
