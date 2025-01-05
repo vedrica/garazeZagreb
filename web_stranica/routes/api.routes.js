@@ -9,7 +9,7 @@ const postSchema = joi.object({
     // idGaraza: joi.number().required(),   ovo se generira u bazi automatski
     imegaraza: joi.string().required(),
     ulica: joi.string().required(),
-    broj: joi.number().required(),
+    broj: joi.string().required(),
     kvart: joi.string().required(),
     brojmjesta: joi.number().required(),
     brojrazina: joi.number().required(),
@@ -34,7 +34,7 @@ const putSchema = joi.object({
     idgaraza: joi.number().required(),
     imegaraza: joi.string().required(),
     ulica: joi.string().required(),
-    broj: joi.number().required(),
+    broj: joi.string().required(),
     kvart: joi.string().required(),
     brojmjesta: joi.number().required(),
     brojrazina: joi.number().required(),
