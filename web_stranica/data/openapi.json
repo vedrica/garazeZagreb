@@ -150,6 +150,7 @@
                 "parameters": [
                     {
                         "name": "idGaraze",
+                        "in": "path",
                         "required": true,
                         "schema": {
                             "type": "integer"
@@ -215,6 +216,7 @@
                 "parameters": [
                     {
                         "name": "idGaraze",
+                        "in": "path",
                         "required": true,
                         "schema": {
                             "type": "integer"
