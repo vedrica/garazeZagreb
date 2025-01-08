@@ -406,7 +406,7 @@ router.post('/', async function(req, res){
             values = [idGaraza, tarifeId[i]];
             await queryDatabase(query, values, res);
         }
-        res.status(200).json({
+        res.status(201).json({
             status: "OK",
             message: "Data added successfully",
             response: null

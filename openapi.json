@@ -54,7 +54,7 @@
                     "required": true
                 },
                 "responses": {
-                    "200": {
+                    "201": {
                         "description": "Garage created.",
                         "content": {
                             "application/json": {
