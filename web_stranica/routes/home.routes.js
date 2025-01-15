@@ -22,8 +22,19 @@ router.get('/getCSV', function(req, res){
     });
 });
 
+router.get('/profile', function(req, res){
+    if(!req.oidc.isAuthenticated())
+        return res.redirect('/login');
+    res.sendFile(path.join(__dirname, '../public/profile.html'));
+});
+
 router.get('/', function(req, res){
-    res.sendFile(path.join(__dirname, '../public/index.html'));
+    console.log("Tu sam");
+    console.log('User authenticated:', req.oidc.isAuthenticated());
+    if(req.oidc.isAuthenticated())
+        return res.sendFile(path.join(__dirname, '../public/index_login.html'));
+    console.log('User not authenticated');
+    res.sendFile(path.join(__dirname, '../public/datatable.html'));
 });
 
 module.exports = router;
