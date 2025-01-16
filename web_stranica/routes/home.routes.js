@@ -135,6 +135,12 @@ router.get('/osvjeziPreslike', function(req, res){
     });
 });
 
+router.get('/user', function(req, res){
+    if(!req.oidc.isAuthenticated())
+        return res.redirect('/login');
+    res.send(req.oidc.user);
+});
+
 router.get('/', function(req, res){
     console.log("Tu sam");
     console.log('User authenticated:', req.oidc.isAuthenticated());
