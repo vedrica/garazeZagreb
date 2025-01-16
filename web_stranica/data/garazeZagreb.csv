@@ -1,5 +1,3 @@
-idgaraza,imegaraza,ulica,broj,kvart,brojmjesta,brojrazina,maksimalnavisina,dostupnostpovlastenekarte,pocetak,kraj,cijena,idlokacije,opislokacije
-1,Importanne Centar,Trg Ante Starčevića,7,Donji Grad,450,2,2.4,true,00:00:00,24:00:00,2.00,1,tržni/poslovni centar
 2,Importanne Galleria,Iblerov trg,10,Donji Grad,500,4,2.5,true,00:00:00,24:00:00,2.00,1,tržni/poslovni centar
 3,Langov trg - Langić,Trg Josipa Langa,13,Medvešćak,305,6,2.1,true,08:00:00,21:00:00,1.60,2,javna garaža
 3,Langov trg - Langić,Trg Josipa Langa,13,Medvešćak,305,6,2.1,true,21:00:00,08:00:00,0.80,2,javna garaža
@@ -15,3 +13,5 @@ idgaraza,imegaraza,ulica,broj,kvart,brojmjesta,brojrazina,maksimalnavisina,dostu
 9,KB Sveti Duh,Sveti Duh,64,Črnomerec,477,4,2.0,true,18:00:00,07:00:00,0.40,3,bolnički parking
 10,Tuškanac,Tuškanac,1b,Tuškanac,465,4,2.3,true,08:00:00,21:00:00,1.60,2,javna garaža
 11,Garage International,Miramarska,24,Trnje,447,9,2.2,true,00:00:00,24:00:00,1.50,1,tržni/poslovni centar
+12,Fer centar - 2,Trg Ante Starčevića,7,Donji Grad,450,2,2.4,true,00:00:00,24:00:00,2.00,1,tržni/poslovni centar
+1,Importanne Centar - novo,Trg Ante Starčevića,7,Donji Grad,450,2,2.4,true,00:00:00,24:00:00,2.00,1,tržni/poslovni centar

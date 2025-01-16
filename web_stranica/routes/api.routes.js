@@ -90,6 +90,8 @@ const startQuery = `
     NATURAL JOIN radnovrijeme
     JOIN tiplokacije ON tipLokacije = idLokacije`;
 
+global.startQueryJson = startQuery;
+
 async function queryDatabase(query, values, res){
     return new Promise((resolve, reject) => {
         global.pool.query(query, values, (err, data) => {
