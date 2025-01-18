@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
-    "$id": "https://github.com/vedrica/garazeZagreb/blob/labos2/jsonSchema.json",
+    "$id": "https://github.com/vedrica/garazeZagreb/blob/main/jsonSchema.json",
     "type": "array",
     "items": [
       {
