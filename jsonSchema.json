@@ -1,113 +1,111 @@
 {
-    "$schema": "https://json-schema.org/draft/2019-09/schema",
+    "$schema": "http://json-schema.org/draft-04/schema#",
     "$id": "https://github.com/vedrica/garazeZagreb/blob/labos2/jsonSchema.json",
     "type": "array",
-    "default": [],
-    "title": "Garaže u Zagrebu",
-    "items": {
+    "items": [
+      {
         "type": "object",
-        "title": "A Schema",
-        "required": [
-            "idGaraza",
-            "imeGaraza",
-            "ulica",
-            "broj",
-            "kvart",
-            "brojMjesta",
-            "brojRazina",
-            "maksimalnaVisina",
-            "dostupnostPovlasteneKarte",
-            "tarife",
-            "lokacija"
-        ],
         "properties": {
-            "idGaraza": {
-                "type": "integer",
-                "title": "The idGaraza Schema"
+          "@context": {
+            "type": "object",
+            "properties": {
+              "vocab": {
+                "type": "string"
+              },
+              "imegaraza": {
+                "type": "string"
+              },
+              "kvart": {
+                "type": "string"
+              }
             },
-            "imeGaraza": {
-                "type": "string",
-                "title": "The imeGaraza Schema"
-            },
-            "ulica": {
-                "type": "string",
-                "title": "The ulica Schema"
-            },
-            "broj": {
-                "type": "string",
-                "title": "The broj Schema"
-            },
-            "kvart": {
-                "type": "string",
-                "title": "The kvart Schema"
-            },
-            "brojMjesta": {
-                "type": "integer",
-                "title": "The brojMjesta Schema"
-            },
-            "brojRazina": {
-                "type": "integer",
-                "title": "The brojRazina Schema"
-            },
-            "maksimalnaVisina": {
-                "type": [
-                    "number",
-                    "integer"
-                ],
-                "title": "The maksimalnaVisina Schema"
-            },
-            "dostupnostPovlasteneKarte": {
-                "type": "boolean",
-                "title": "The dostupnostPovlasteneKarte Schema"
-            },
-            "tarife": {
-                "type": "array",
-                "title": "The tarife Schema",
-                "items": {
-                    "type": "object",
-                    "title": "A Schema",
-                    "required": [
-                        "pocetak",
-                        "kraj",
-                        "cijena"
-                    ],
-                    "properties": {
-                        "pocetak": {
-                            "type": "string",
-                            "title": "The pocetak Schema"
-                        },
-                        "kraj": {
-                            "type": "string",
-                            "title": "The kraj Schema"
-                        },
-                        "cijena": {
-                            "type": [
-                                "integer",
-                                "number"
-                            ],
-                            "title": "The cijena Schema"
-                        }
-                    }
-                }
-            },
-            "lokacija": {
+            "required": [
+              "vocab",
+              "imegaraza",
+              "kvart"
+            ]
+          },
+          "idgaraza": {
+            "type": "integer"
+          },
+          "imegaraza": {
+            "type": "string"
+          },
+          "ulica": {
+            "type": "string"
+          },
+          "broj": {
+            "type": "string"
+          },
+          "kvart": {
+            "type": "string"
+          },
+          "brojmjesta": {
+            "type": "integer"
+          },
+          "brojrazina": {
+            "type": "integer"
+          },
+          "maksimalnavisina": {
+            "type": "string"
+          },
+          "dostupnostpovlastenekarte": {
+            "type": "boolean"
+          },
+          "tarife": {
+            "type": "array",
+            "items": [
+              {
                 "type": "object",
-                "title": "The lokacija Schema",
-                "required": [
-                    "idlokacije",
-                    "opislokacije"
-                ],
                 "properties": {
-                    "idlokacije": {
-                        "type": "integer",
-                        "title": "The idlokacije Schema"
-                    },
-                    "opislokacije": {
-                        "type": "string",
-                        "title": "The opislokacije Schema"
-                    }
-                }
-            }
-        }
-    }
-}
+                  "pocetak": {
+                    "type": "string"
+                  },
+                  "kraj": {
+                    "type": "string"
+                  },
+                  "cijena": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "pocetak",
+                  "kraj",
+                  "cijena"
+                ]
+              }
+            ]
+          },
+          "lokacija": {
+            "type": "object",
+            "properties": {
+              "idlokacije": {
+                "type": "integer"
+              },
+              "opislokacije": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "idlokacije",
+              "opislokacije"
+            ]
+          }
+        },
+        "required": [
+          "@context",
+          "idgaraza",
+          "imegaraza",
+          "ulica",
+          "broj",
+          "kvart",
+          "brojmjesta",
+          "brojrazina",
+          "maksimalnavisina",
+          "dostupnostpovlastenekarte",
+          "tarife",
+          "lokacija"
+        ]
+      }
+    ]
+  }
