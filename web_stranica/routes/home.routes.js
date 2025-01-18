@@ -92,10 +92,11 @@ router.get('/osvjeziPreslike', function(req, res){
 
     const kontekst = {
         "@context":{
-            "vocab":"http://schema.org/",
-            "imegaraza":"http://schema.org/name",
+            "@vocab":"http://schema.org/",
+            "imegaraza": "name",
             "kvart":"http://schema.org/addressLocality"
-        }
+        },
+        "@type":"ParkingFacility"
     }
         
     let lista = [startQueryJson, startQueryCsv];

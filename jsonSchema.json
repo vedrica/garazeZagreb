@@ -1,111 +1,111 @@
 {
-    "$schema": "http://json-schema.org/draft-04/schema#",
-    "$id": "https://github.com/vedrica/garazeZagreb/blob/main/jsonSchema.json",
-    "type": "array",
-    "items": [
-      {
-        "type": "object",
-        "properties": {
-          "@context": {
-            "type": "object",
-            "properties": {
-              "vocab": {
-                "type": "string"
-              },
-              "imegaraza": {
-                "type": "string"
-              },
-              "kvart": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "vocab",
-              "imegaraza",
-              "kvart"
-            ]
-          },
-          "idgaraza": {
-            "type": "integer"
-          },
-          "imegaraza": {
-            "type": "string"
-          },
-          "ulica": {
-            "type": "string"
-          },
-          "broj": {
-            "type": "string"
-          },
-          "kvart": {
-            "type": "string"
-          },
-          "brojmjesta": {
-            "type": "integer"
-          },
-          "brojrazina": {
-            "type": "integer"
-          },
-          "maksimalnavisina": {
-            "type": "string"
-          },
-          "dostupnostpovlastenekarte": {
-            "type": "boolean"
-          },
-          "tarife": {
-            "type": "array",
-            "items": [
-              {
-                "type": "object",
-                "properties": {
-                  "pocetak": {
-                    "type": "string"
-                  },
-                  "kraj": {
-                    "type": "string"
-                  },
-                  "cijena": {
-                    "type": "integer"
-                  }
-                },
-                "required": [
-                  "pocetak",
-                  "kraj",
-                  "cijena"
-                ]
-              }
-            ]
-          },
-          "lokacija": {
-            "type": "object",
-            "properties": {
-              "idlokacije": {
-                "type": "integer"
-              },
-              "opislokacije": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "idlokacije",
-              "opislokacije"
-            ]
-          }
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$id": "https://github.com/vedrica/garazeZagreb/blob/main/jsonSchema.json",
+  "type": "object",
+  "properties": {
+    "@context": {
+      "type": "object",
+      "properties": {
+        "@vocab": {
+          "type": "string"
         },
-        "required": [
-          "@context",
-          "idgaraza",
-          "imegaraza",
-          "ulica",
-          "broj",
-          "kvart",
-          "brojmjesta",
-          "brojrazina",
-          "maksimalnavisina",
-          "dostupnostpovlastenekarte",
-          "tarife",
-          "lokacija"
-        ]
-      }
-    ]
-  }
+        "imegaraza": {
+          "type": "string"
+        },
+        "kvart": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "@vocab",
+        "imegaraza",
+        "kvart"
+      ]
+    },
+    "@type": {
+      "type": "string"
+    },
+    "idgaraza": {
+      "type": "integer"
+    },
+    "imegaraza": {
+      "type": "string"
+    },
+    "ulica": {
+      "type": "string"
+    },
+    "broj": {
+      "type": "string"
+    },
+    "kvart": {
+      "type": "string"
+    },
+    "brojmjesta": {
+      "type": "integer"
+    },
+    "brojrazina": {
+      "type": "integer"
+    },
+    "maksimalnavisina": {
+      "type": "string"
+    },
+    "dostupnostpovlastenekarte": {
+      "type": "boolean"
+    },
+    "tarife": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "pocetak": {
+              "type": "string"
+            },
+            "kraj": {
+              "type": "string"
+            },
+            "cijena": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "pocetak",
+            "kraj",
+            "cijena"
+          ]
+        }
+      ]
+    },
+    "lokacija": {
+      "type": "object",
+      "properties": {
+        "idlokacije": {
+          "type": "integer"
+        },
+        "opislokacije": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "idlokacije",
+        "opislokacije"
+      ]
+    }
+  },
+  "required": [
+    "@context",
+    "@type",
+    "idgaraza",
+    "imegaraza",
+    "ulica",
+    "broj",
+    "kvart",
+    "brojmjesta",
+    "brojrazina",
+    "maksimalnavisina",
+    "dostupnostpovlastenekarte",
+    "tarife",
+    "lokacija"
+  ]
+}
+

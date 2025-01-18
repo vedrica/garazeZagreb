@@ -72,6 +72,18 @@ router.post('/', function(req, res){
                 }
             }
         }
+        const kontekst = {
+            "@context":{
+                "@vocab":"http://schema.org/",
+                "imegaraza": "name",
+                "kvart":"http://schema.org/addressLocality"
+            },
+            "@type":"ParkingFacility"
+        }
+        results = results.map(garaza => ({
+            ...kontekst,
+            ...garaza
+        }));
         let uniqueResults = Array.from(new Set(results.map(row => JSON.stringify(row))))
                                      .map(str => JSON.parse(str));
         results = JSON.parse(JSON.stringify(uniqueResults));
@@ -224,6 +236,18 @@ router.post('/getJSON', function(req, res){
                 }
             }
         }
+        const kontekst = {
+            "@context":{
+                "@vocab":"http://schema.org/",
+                "imegaraza": "name",
+                "kvart":"http://schema.org/addressLocality"
+            },
+            "@type":"ParkingFacility"
+        };
+        results = results.map(garaza => ({
+            ...kontekst,
+            ...garaza
+        }));
         let uniqueResults = Array.from(new Set(results.map(row => JSON.stringify(row))))
                                      .map(str => JSON.parse(str));
         results = JSON.parse(JSON.stringify(uniqueResults));

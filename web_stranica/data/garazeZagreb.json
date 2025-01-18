@@ -1,12 +1,13 @@
 [
   {
     "@context": {
-      "vocab": "http://schema.org/",
-      "imegaraza": "http://schema.org/name",
+      "@vocab": "http://schema.org/",
+      "imegaraza": "name",
       "kvart": "http://schema.org/addressLocality"
     },
+    "@type": "ParkingFacility",
     "idgaraza": 1,
-    "imegaraza": "Importanne Centar - najnovije",
+    "imegaraza": "Importanne Centar",
     "ulica": "Trg Ante Starčevića",
     "broj": "7",
     "kvart": "Donji Grad",
@@ -28,10 +29,11 @@
   },
   {
     "@context": {
-      "vocab": "http://schema.org/",
-      "imegaraza": "http://schema.org/name",
+      "@vocab": "http://schema.org/",
+      "imegaraza": "name",
       "kvart": "http://schema.org/addressLocality"
     },
+    "@type": "ParkingFacility",
     "idgaraza": 2,
     "imegaraza": "Importanne Galleria",
     "ulica": "Iblerov trg",
@@ -55,10 +57,11 @@
   },
   {
     "@context": {
-      "vocab": "http://schema.org/",
-      "imegaraza": "http://schema.org/name",
+      "@vocab": "http://schema.org/",
+      "imegaraza": "name",
       "kvart": "http://schema.org/addressLocality"
     },
+    "@type": "ParkingFacility",
     "idgaraza": 3,
     "imegaraza": "Langov trg - Langić",
     "ulica": "Trg Josipa Langa",
@@ -87,10 +90,11 @@
   },
   {
     "@context": {
-      "vocab": "http://schema.org/",
-      "imegaraza": "http://schema.org/name",
+      "@vocab": "http://schema.org/",
+      "imegaraza": "name",
       "kvart": "http://schema.org/addressLocality"
     },
+    "@type": "ParkingFacility",
     "idgaraza": 4,
     "imegaraza": "Cvjetni",
     "ulica": "Varšavska ulica",
@@ -114,10 +118,11 @@
   },
   {
     "@context": {
-      "vocab": "http://schema.org/",
-      "imegaraza": "http://schema.org/name",
+      "@vocab": "http://schema.org/",
+      "imegaraza": "name",
       "kvart": "http://schema.org/addressLocality"
     },
+    "@type": "ParkingFacility",
     "idgaraza": 5,
     "imegaraza": "Petrinjska",
     "ulica": "Petrinjska ulica",
@@ -146,10 +151,11 @@
   },
   {
     "@context": {
-      "vocab": "http://schema.org/",
-      "imegaraza": "http://schema.org/name",
+      "@vocab": "http://schema.org/",
+      "imegaraza": "name",
       "kvart": "http://schema.org/addressLocality"
     },
+    "@type": "ParkingFacility",
     "idgaraza": 6,
     "imegaraza": "Kaptol Centar",
     "ulica": "Nova ves",
@@ -173,10 +179,11 @@
   },
   {
     "@context": {
-      "vocab": "http://schema.org/",
-      "imegaraza": "http://schema.org/name",
+      "@vocab": "http://schema.org/",
+      "imegaraza": "name",
       "kvart": "http://schema.org/addressLocality"
     },
+    "@type": "ParkingFacility",
     "idgaraza": 7,
     "imegaraza": "Kvaternikov trg",
     "ulica": "Kvaternikov trg",
@@ -205,10 +212,11 @@
   },
   {
     "@context": {
-      "vocab": "http://schema.org/",
-      "imegaraza": "http://schema.org/name",
+      "@vocab": "http://schema.org/",
+      "imegaraza": "name",
       "kvart": "http://schema.org/addressLocality"
     },
+    "@type": "ParkingFacility",
     "idgaraza": 8,
     "imegaraza": "KB Rebro",
     "ulica": "Kišpatićeva ulica",
@@ -237,10 +245,11 @@
   },
   {
     "@context": {
-      "vocab": "http://schema.org/",
-      "imegaraza": "http://schema.org/name",
+      "@vocab": "http://schema.org/",
+      "imegaraza": "name",
       "kvart": "http://schema.org/addressLocality"
     },
+    "@type": "ParkingFacility",
     "idgaraza": 9,
     "imegaraza": "KB Sveti Duh",
     "ulica": "Sveti Duh",
@@ -269,10 +278,11 @@
   },
   {
     "@context": {
-      "vocab": "http://schema.org/",
-      "imegaraza": "http://schema.org/name",
+      "@vocab": "http://schema.org/",
+      "imegaraza": "name",
       "kvart": "http://schema.org/addressLocality"
     },
+    "@type": "ParkingFacility",
     "idgaraza": 10,
     "imegaraza": "Tuškanac",
     "ulica": "Tuškanac",
@@ -296,10 +306,11 @@
   },
   {
     "@context": {
-      "vocab": "http://schema.org/",
-      "imegaraza": "http://schema.org/name",
+      "@vocab": "http://schema.org/",
+      "imegaraza": "name",
       "kvart": "http://schema.org/addressLocality"
     },
+    "@type": "ParkingFacility",
     "idgaraza": 11,
     "imegaraza": "Garage International",
     "ulica": "Miramarska",
@@ -323,10 +334,11 @@
   },
   {
     "@context": {
-      "vocab": "http://schema.org/",
-      "imegaraza": "http://schema.org/name",
+      "@vocab": "http://schema.org/",
+      "imegaraza": "name",
       "kvart": "http://schema.org/addressLocality"
     },
+    "@type": "ParkingFacility",
     "idgaraza": 12,
     "imegaraza": "Fer centar - 2",
     "ulica": "Trg Ante Starčevića",
