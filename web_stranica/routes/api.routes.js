@@ -277,6 +277,18 @@ router.get('/:idGaraze', function(req, res){
             for (var i = 0; i < data.rows.length; i++) {
                 results.push(data.rows[i]);
             }
+            const kontekst = {
+                "@context":{
+                    "@vocab":"http://schema.org/",
+                    "imegaraza": "name",
+                    "kvart":"http://schema.org/addressLocality"
+                },
+                "@type":"ParkingFacility"
+            };
+            results = results.map(garaza => ({
+                ...kontekst,
+                ...garaza
+            }));
             let uniqueResults = Array.from(new Set(results.map(row => JSON.stringify(row))))
                                          .map(str => JSON.parse(str));
             results = JSON.parse(JSON.stringify(uniqueResults));
