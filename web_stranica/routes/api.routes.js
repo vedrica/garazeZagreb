@@ -157,6 +157,18 @@ router.get('/brojMjesta', async function(req, res){
         let uniqueResults = Array.from(new Set(data.rows.map(row => JSON.stringify(row))))
                                  .map(str => JSON.parse(str));
         data.rows = JSON.parse(JSON.stringify(uniqueResults));
+        const kontekst = {
+            "@context":{
+                "@vocab":"http://schema.org/",
+                "imegaraza": "name",
+                "kvart":"http://schema.org/addressLocality"
+            },
+            "@type":"ParkingFacility"
+        };
+        data.rows = data.rows.map(garaza => ({
+            ...kontekst,
+            ...garaza
+        }));
         data.rows.sort((a, b) => {
             if (a.idgaraza < b.idgaraza) return -1;
             if (a.idgaraza > b.idgaraza) return 1;
@@ -204,6 +216,18 @@ router.get('/name', async function(req, res){
     const searchValue = `%${value}%`;
     var query = startQuery + ` WHERE imeGaraza LIKE $1`;
     var data = await queryDatabase(query, [searchValue], res);
+    const kontekst = {
+        "@context":{
+            "@vocab":"http://schema.org/",
+            "imegaraza": "name",
+            "kvart":"http://schema.org/addressLocality"
+        },
+        "@type":"ParkingFacility"
+    };
+    data.rows = data.rows.map(garaza => ({
+        ...kontekst,
+        ...garaza
+    }));
     let uniqueResults = Array.from(new Set(data.rows.map(row => JSON.stringify(row))))
                                     .map(str => JSON.parse(str));
     data.rows = JSON.parse(JSON.stringify(uniqueResults));
@@ -323,7 +347,7 @@ router.get('/', function(req, res){
                 },
                 "@type":"ParkingFacility"
             };
-            results = results.map(garaza => ({
+            data.rows = data.rows.map(garaza => ({
                 ...kontekst,
                 ...garaza
             }));
@@ -521,6 +545,18 @@ router.get('/tipLokacije/:idLokacije', function(req, res){
         //     });
         //     return;
         // }
+        const kontekst = {
+            "@context":{
+                "@vocab":"http://schema.org/",
+                "imegaraza": "name",
+                "kvart":"http://schema.org/addressLocality"
+            },
+            "@type":"ParkingFacility"
+        };
+        data.rows = data.rows.map(garaza => ({
+            ...kontekst,
+            ...garaza
+        }));
         let uniqueResults = Array.from(new Set(data.rows.map(row => JSON.stringify(row))))
                                  .map(str => JSON.parse(str));
         data.rows = JSON.parse(JSON.stringify(uniqueResults));
