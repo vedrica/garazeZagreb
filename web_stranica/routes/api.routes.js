@@ -315,6 +315,18 @@ router.get('/', function(req, res){
             console.error('Error executing query', err.stack);
             res.status(500).json({error: 'Error executing query'});
         } else {
+            const kontekst = {
+                "@context":{
+                    "@vocab":"http://schema.org/",
+                    "imegaraza": "name",
+                    "kvart":"http://schema.org/addressLocality"
+                },
+                "@type":"ParkingFacility"
+            };
+            results = results.map(garaza => ({
+                ...kontekst,
+                ...garaza
+            }));
             let uniqueResults = Array.from(new Set(data.rows.map(row => JSON.stringify(row)))
                                         ).map(str => JSON.parse(str));
             data.rows = JSON.parse(JSON.stringify(uniqueResults));
